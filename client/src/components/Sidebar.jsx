@@ -78,9 +78,13 @@ function Sidebar({ isOpen, onToggle }) {
             <aside className={`sidebar ${isOpen ? 'open' : ''}`}>
                 <div className="sidebar-brand">
                     <Link to={isAdmin ? '/admin/dashboard' : '/student/dashboard'} className="brand-link">
-                        <img src="/selyo-logo.png" alt="SELYO" className="brand-logo" />
+                        <img src="/ustp-logo.png" alt="USTP Registrar" className="brand-logo" />
                         <div className="brand-text-group">
-                            <span className="brand-selyo">SELYO</span>
+                            <div className="brand-selyo-row">
+                                <span className="brand-s">S</span>
+                                <img src="/selyo-logo.png" alt="" className="brand-selyo-logo" />
+                                <span className="brand-lyo">LYO</span>
+                            </div>
                             <span className="brand-portal">{isAdmin ? 'ADMIN PORTAL' : 'STUDENT PORTAL'}</span>
                         </div>
                     </Link>

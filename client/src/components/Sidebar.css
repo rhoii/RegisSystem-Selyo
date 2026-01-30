@@ -71,6 +71,28 @@
     line-height: 1;
 }
 
+.brand-selyo-row {
+    display: flex;
+    align-items: center;
+    gap: 0;
+}
+
+.brand-s,
+.brand-lyo {
+    font-size: 26px;
+    font-weight: 800;
+    color: #f39c12;
+    letter-spacing: 1px;
+    line-height: 1;
+}
+
+.brand-selyo-logo {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    margin: 0 1px;
+}
+
 .brand-portal {
     font-size: 11px;
     font-weight: 500;

@@ -79,6 +79,45 @@ let MOCK_REQUESTS = [
         qrCode: 'QR-REQ002DEF'
     },
     {
+        _id: 'req007',
+        student: MOCK_STUDENTS[0],
+        requestType: 'Irregular Enrollment',
+        status: 'Appointment Scheduled',
+        reason: 'Need to enroll in subjects from different year levels',
+        createdAt: new Date(Date.now() - 1 * 24 * 60 * 60 * 1000).toISOString(),
+        qrCode: 'QR-REQ007STU',
+        appointment: {
+            _id: 'apt003',
+            date: new Date(Date.now() + 2 * 24 * 60 * 60 * 1000).toISOString(),
+            timeSlot: '2:00 PM - 2:30 PM',
+            status: 'Scheduled'
+        }
+    },
+    {
+        _id: 'req008',
+        student: MOCK_STUDENTS[0],
+        requestType: 'Document Submission',
+        status: 'Pending Dean Approval',
+        reason: 'Submitting original PSA and Form 137',
+        createdAt: new Date(Date.now() - 4 * 24 * 60 * 60 * 1000).toISOString(),
+        qrCode: 'QR-REQ008VWX',
+        appointment: {
+            _id: 'apt004',
+            date: new Date(Date.now() + 4 * 24 * 60 * 60 * 1000).toISOString(),
+            timeSlot: '10:00 AM - 10:30 AM',
+            status: 'Scheduled'
+        }
+    },
+    {
+        _id: 'req009',
+        student: MOCK_STUDENTS[0],
+        requestType: 'Petition for Subject',
+        status: 'Approved',
+        reason: 'Petition for opening IT Capstone 2 section',
+        createdAt: new Date(Date.now() - 8 * 24 * 60 * 60 * 1000).toISOString(),
+        qrCode: 'QR-REQ009YZA'
+    },
+    {
         _id: 'req003',
         student: MOCK_STUDENTS[1],
         requestType: 'Irregular Enrollment',

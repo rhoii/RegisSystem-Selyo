@@ -283,19 +283,19 @@ const mockApi = {
         }
 
         // Student routes
-        if (url === '/student/requests') {
+        if (url === '/student/requests' || url === '/requests') {
             const studentRequests = MOCK_REQUESTS.filter(r => r.student._id === user._id)
             return { data: { requests: studentRequests } }
         }
 
-        if (url.startsWith('/student/requests/')) {
+        if (url.startsWith('/student/requests/') || url.match(/^\/requests\/[^/]+$/)) {
             const id = url.split('/').pop()
             const request = MOCK_REQUESTS.find(r => r._id === id)
             if (!request) throw { response: { status: 404, data: { message: 'Request not found' } } }
             return { data: { request } }
         }
 
-        if (url === '/student/announcements') {
+        if (url === '/student/announcements' || url === '/requests/announcements') {
             return { data: { announcements: MOCK_ANNOUNCEMENTS.filter(a => a.isActive) } }
         }
 

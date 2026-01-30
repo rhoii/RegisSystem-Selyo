@@ -254,6 +254,34 @@ const mockApi = {
             return { data: { user } }
         }
 
+        // Request types (public route)
+        if (url === '/requests/types') {
+            return {
+                data: {
+                    types: {
+                        'TOR': { label: 'Transcript of Records', requiresAppointment: false, requiredDocuments: [] },
+                        'Shifting': { label: 'Program Shifting', requiresAppointment: false, requiredDocuments: [] },
+                        'Add/Drop': { label: 'Add/Drop Form', requiresAppointment: false, requiredDocuments: [] },
+                        'Irregular Enrollment': {
+                            label: 'Irregular/Transfer Enrollment',
+                            requiresAppointment: true,
+                            requiredDocuments: ['Grades/Transcript from Previous School', 'Evaluation Form', 'Certificate of Good Moral', 'PSA Birth Certificate']
+                        },
+                        'Document Submission': {
+                            label: 'Document Submission',
+                            requiresAppointment: true,
+                            requiredDocuments: ['Original Copy of Required Documents']
+                        },
+                        'Petition for Subject': {
+                            label: 'Petition for Subject',
+                            requiresAppointment: true,
+                            requiredDocuments: ['Petition Form', 'List of Petitioning Students with Signatures', 'Course Syllabus (if applicable)']
+                        }
+                    }
+                }
+            }
+        }
+
         // Student routes
         if (url === '/student/requests') {
             const studentRequests = MOCK_REQUESTS.filter(r => r.student._id === user._id)
@@ -352,14 +380,18 @@ const mockApi = {
             }
         }
 
-        // Student create request
-        if (url === '/student/requests') {
+        // Student create request (handles both /requests and /student/requests)
+        if (url === '/student/requests' || url === '/requests') {
             const user = getCurrentUser()
+            // Handle FormData - extract requestType from data
+            const requestType = data.requestType || (data.get ? data.get('requestType') : '')
+            const reason = data.reason || (data.get ? data.get('reason') : '')
+
             const newRequest = {
                 _id: `req_${generateId()}`,
                 student: user,
-                requestType: data.requestType,
-                reason: data.reason || '',
+                requestType: requestType,
+                reason: reason,
                 status: 'Submitted',
                 createdAt: new Date().toISOString(),
                 qrCode: `QR-${generateId().toUpperCase()}`

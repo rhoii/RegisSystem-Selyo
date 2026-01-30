@@ -57,6 +57,11 @@
     object-fit: contain;
 }
 
+.brand-selyo-img {
+    height: 48px;
+    object-fit: contain;
+}
+
 .brand-text-group {
     display: flex;
     flex-direction: column;

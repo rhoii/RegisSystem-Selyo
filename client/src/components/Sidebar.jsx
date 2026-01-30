@@ -79,14 +79,7 @@ function Sidebar({ isOpen, onToggle }) {
                 <div className="sidebar-brand">
                     <Link to={isAdmin ? '/admin/dashboard' : '/student/dashboard'} className="brand-link">
                         <img src="/ustp-logo.png" alt="USTP Registrar" className="brand-logo" />
-                        <div className="brand-text-group">
-                            <div className="brand-selyo-row">
-                                <span className="brand-s">S</span>
-                                <img src="/selyo-logo.png" alt="" className="brand-selyo-logo" />
-                                <span className="brand-lyo">LYO</span>
-                            </div>
-                            <span className="brand-portal">{isAdmin ? 'ADMIN PORTAL' : 'STUDENT PORTAL'}</span>
-                        </div>
+                        <img src="/selyo-logo.png" alt="SELYO" className="brand-selyo-img" />
                     </Link>
                 </div>
 
